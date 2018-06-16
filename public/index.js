@@ -1,5 +1,5 @@
 const  app = function(){
-  const url = "https://api.punkapi.com/v2/beers";
+  const url = "https://rickandmortyapi.com/api/character/";
   makeRequest(url, requestComplete);
 }
 
@@ -13,47 +13,50 @@ const makeRequest = function(url, callback){
 
 const requestComplete = function(){
   if(this.status !== 200) return;
-  const beers = JSON.parse(this.response);
-  populateList(beers);
-  populateDropDown(beers);
+  const characters = JSON.parse(this.response);
+  populateList(characters);
+  populateDropDown(characters);
   const select = document.querySelector('select');
   select.addEventListener('change', function(){
-    var beer = beers[select.value];
-    handleSelectChange(beer)
+    var character = characters[select.value];
+    handleSelectChange(character)
   });
 
 
 }
 
-const populateList = function(beers){
-  const ul = document.querySelector('#beer-list');
-  beers.forEach(function(beer){
+const populateList = function(characters){
+  const ul = document.querySelector('#character-list');
+  characters.forEach(function(character){
     const li = document.createElement('li');
-    li.textContent = beer.name + ", " + beer.tagline;
+    li.textContent = character.name + ", " + character.species + ", " + character.gender;
     ul.appendChild(li);
   });
 }
 
-const populateDropDown = function(beers){
-  const dropdown = document.querySelector('#beers');
-  beers.forEach(function(beer){
+const populateDropDown = function(characters){
+  const dropdown = document.querySelector('#characters');
+  characters.forEach(function(character){
     const option = document.createElement('option');
-    option.value = beers.indexOf(beer);
-    option.textContent = beer.name;
+    option.value = characters.indexOf(character);
+    option.textContent = character.name;
     dropdown.appendChild(option);
     });
 
 }
 
-const handleSelectChange = function(beer){
-  const ul = document.querySelector('#selected-beer');
+const handleSelectChange = function(character){
+  const ul = document.querySelector('#selected-character');
   const nameLi = document.querySelector('#nameLi');
-  nameLi.textContent = beer.name;
-  const taglineLi = document.querySelector('#taglineLi');
-  taglineLi.textContent = beer.tagline;
+  nameLi.textContent = character.name;
+  const speciesLi = document.querySelector('#speciesLi');
+  speciesLi.textContent = character.species;
+  const genderLi  = document.querySelector('#genderLi')
+  genderLi.textContent = character.gender;
 
   ul.appendChild(nameLi)
-  ul.appendChild(taglineLi)
+  ul.appendChild(speciesLi)
+  ul.appendChild(genderLi)
 
 
 }
