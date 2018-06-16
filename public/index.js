@@ -1,5 +1,5 @@
 const  app = function(){
-  const url = "https://rickandmortyapi.com/api/character/";
+  const url = "http://hp-api.herokuapp.com/api/characters";
   makeRequest(url, requestComplete);
 }
 
