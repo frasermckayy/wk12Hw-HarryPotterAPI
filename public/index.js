@@ -48,12 +48,10 @@ const populateDropDown = function(characters){
 }
 
 const characterImg = function(inputtedImg){
-  const img = document.createElement("li");
   const imageTag = document.createElement("img");
   imageTag.width = "500";
   imageTag.src = inputtedImg;
-  img.appendChild(imageTag);
-  return img
+  return imageTag;
 };
 
 const handleSelectChange = function(character){
@@ -67,13 +65,13 @@ const handleSelectChange = function(character){
   const houseLi = document.querySelector('#houseLi')
   houseLi.textContent = character.house;
   const wandLi = document.querySelector('#wandLi')
-  wandLi.textContent = character.wand;
+  wandLi.textContent = `${character.wand.wood}, ${character.wand.core}`;
   const patronusLi = document.querySelector('#patronusLi')
   patronusLi.textContent = character.patronus;
   const actorLi = document.querySelector('#actorLi')
   actorLi.textContent = character.actor;
   const imageLi = document.querySelector('#imageLi')
-  imageLi.textContent = character.image;
+  imageLi.appendChild(characterImg(character.image));
 
   ul.appendChild(nameLi)
   ul.appendChild(speciesLi)
