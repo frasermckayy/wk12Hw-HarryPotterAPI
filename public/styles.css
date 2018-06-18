@@ -1,0 +1,44 @@
+body {
+  background: linear-gradient(to bottom right, #c31432, #240b36);
+  background-repeat:no-repeat;
+}
+
+img {
+  width: 100%;
+}
+
+img#gif {
+margin-left: 700px;
+}
+
+h1
+  {
+    text-align: center;
+    border: 3px solid gold;
+    border: 2px solid gold;
+    border-left-width: thin;
+   border-radius: 5px;
+   display: inline;
+   margin-left: 400px;
+
+
+
+}
+
+ul#selected-character {
+  text-align: center;
+  border-radius: 5px;
+  list-style-type: none;
+}
+
+div#pie-chart {
+  padding-left: 300px;
+  padding-right: 300px;
+  outline-offset: 10px;
+
+
+}
+
+div#highcharts-ds2ngjn-0.highcharts-container {
+  justify-content: flex-end;
+}

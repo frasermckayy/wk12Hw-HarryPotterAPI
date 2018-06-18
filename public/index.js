@@ -31,7 +31,7 @@ const populateList = function(characters){
   characters.forEach(function(character){
     const li = document.createElement('li');
     li.textContent = character.name + ", " + character.species + ", " + character.gender + ", " + character.house
-    + ", " + character.wand + ", " + character.patronus + ", " + character.actor;
+    + ", " + character.wand + ", " + character.patronus + ", " + character.actor + ", " + character.image;
     ul.appendChild(li);
   });
 }
@@ -46,6 +46,15 @@ const populateDropDown = function(characters){
     });
 
 }
+
+const characterImg = function(inputtedImg){
+  const img = document.createElement("li");
+  const imageTag = document.createElement("img");
+  imageTag.width = "500";
+  imageTag.src = inputtedImg;
+  img.appendChild(imageTag);
+  return img
+};
 
 const handleSelectChange = function(character){
   const ul = document.querySelector('#selected-character');
@@ -63,6 +72,8 @@ const handleSelectChange = function(character){
   patronusLi.textContent = character.patronus;
   const actorLi = document.querySelector('#actorLi')
   actorLi.textContent = character.actor;
+  const imageLi = document.querySelector('#imageLi')
+  imageLi.textContent = character.image;
 
   ul.appendChild(nameLi)
   ul.appendChild(speciesLi)
@@ -71,6 +82,7 @@ const handleSelectChange = function(character){
   ul.appendChild(wandLi)
   ul.appendChild(patronusLi)
   ul.appendChild(actorLi)
+  ul.appendChild(imageLi)
 
  new PieChart();
 
